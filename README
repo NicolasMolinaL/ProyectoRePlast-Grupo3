@@ -1,0 +1,24 @@
+#Arquitectura de Hardware y Componentes
+
+- Controlador Principal: Raspberry Pi 3 Modelo B (Raspberry Pi OS)
+- Sensor de Pesaje: Celda de Carga de 1 kg con módulo amplificador HX711
+- Sensor de Presencia/Distancia: Sensor Ultrasónico HC-SR04 (con divisor de voltaje resistivo 1kΩ / 2kΩ en el pin ECHO para adecuar los 5V a los 3.3V GPIO)
+- Actuador: Servomotor SG90
+- Alimentación: Fuente microUSB 5V/2.5A para la Raspberry Pi
+
+#Pinout y Conexiones
+
+| Componente | Pin / Señal | Pin GPIO (BCM) | Pin Físico RPi |
+| HX711 | DT (Data) | GPIO 5 | Pin 29 | Entrada digital |
+| HX711| SCK (Clock) | GPIO 6 | Pin 31 | Salida digital |
+| HC-SR04 | TRIG | GPIO 23 | Pin 16 | Pulso de disparo |
+| HC-SR04 | ECHO | GPIO 24 | Pin 18 |
+|SG90| PWM | GPIO 18 | Pin 12 | Control por pulso |
+
+#Prerrequisitos
+Asegúrate de contar con Python 3 instalado en tu Raspberry Pi y las dependencias de control de hardware:
+
+```bash
+sudo apt update
+sudo apt install python3-pip git -y
+pip3 install RPi.GPIO gpiozero
